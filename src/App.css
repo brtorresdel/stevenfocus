@@ -1,5 +1,73 @@
+@import "tailwindcss";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+@font-face {
+  font-family: crewniverse;
+  src: url(./assets/fonts/crewniverse/crewniverse_font.otf);
+}
+
+@font-face {
+  font-family: dosis;
+  src: url(./assets/fonts/dosis/dosis_bold.ttf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: dosis;
+  src: url(./assets/fonts/dosis/dosis_book.ttf);
+  font-weight: book;
+}
+
+@font-face {
+  font-family: dosis;
+  src: url(./assets/fonts/dosis/dosis_extra-bold.ttf);
+  font-weight: extra-bold;
+}
+
+@font-face {
+  font-family: dosis;
+  src: url(./assets/fonts/dosis/dosis_extra-light.ttf);
+  font-weight: extra-light;
+}
+
+@font-face {
+  font-family: dosis;
+  src: url(./assets/fonts/dosis/dosis_light.ttf);
+  font-weight: light;
+}
+
+@font-face {
+  font-family: dosis;
+  src: url(./assets/fonts/dosis/dosis_medium.ttf);
+  font-weight: medium;
+}
+
+@font-face {
+  font-family: dosis;
+  src: url(./assets/fonts/dosis/dosis_semi-bold.ttf);
+  font-weight: semi-bold;
+}
+
+@theme {
+  --color-base-white: #f0f0f0;
+  --color-base-black: #121212;
+
+  --color-night-primary: #bf78ac;
+  --color-night-secondary: #6986bf;
+  --color-night-tertiary: #165873;
+
+  --color-pink-primary: #f2bbcf;
+  --color-pink-secondary: #d959ac;
+  --color-pink-tertiary: #d971b4;
+
+  --color-sunset-primary: #8c4955;
+  --color-sunset-secondary: #d9a443;
+  --color-sunset-tertiary: #f2d2b6;
+
+  --font-title: 
 }
