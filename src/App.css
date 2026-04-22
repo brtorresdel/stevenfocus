@@ -69,5 +69,6 @@
   --color-sunset-secondary: #d9a443;
   --color-sunset-tertiary: #f2d2b6;
 
-  --font-title: 
+  --font-title: crewniverse, sans-serif;
+  --font-body: dosis, sans-serif;
 }
