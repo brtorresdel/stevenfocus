@@ -1,16 +1,16 @@
 import { useTheme } from "../../hooks/useTheme";
-import nightVideo from "../../assets/bg_videos/temple_night.mp4";
-import nightSMVideo from "../../assets/bg_videos/temple_night_sm.mp4";
-import pinkVideo from "../../assets/bg_videos/temple_pink.mp4";
-import pinkSMVideo from "../../assets/bg_videos/temple_pink_sm.mp4";
-import sunsetVideo from "../../assets/bg_videos/temple_sunset.mp4";
-import sunsetSMVideo from "../../assets/bg_videos/temple_sunset_sm.mp4";
+import nightVideo from "../../assets/bg_videos/temple_night.webm";
+import nightSMVideo from "../../assets/bg_videos/temple_night_sm.webm";
+import pinkVideo from "../../assets/bg_videos/temple_pink.webm";
+import pinkSMVideo from "../../assets/bg_videos/temple_pink_sm.webm";
+import sunsetVideo from "../../assets/bg_videos/temple_sunset.webm";
+import sunsetSMVideo from "../../assets/bg_videos/temple_sunset_sm.webm";
 
 export function Background({ children }) {
 
     const { theme } = useTheme();
     let bgTheme
-    
+
     if (window.innerWidth < 1024) {
         bgTheme = theme === "night" ? nightSMVideo : theme === "pink" ? pinkSMVideo : sunsetSMVideo;
     } else {
