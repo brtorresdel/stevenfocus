@@ -17,15 +17,18 @@ export function Background({ children }) {
         bgTheme = theme === "night" ? nightVideo : theme === "pink" ? pinkVideo : sunsetVideo;
     }
 
-    const setBgSpeed = () => {
-        const video = document.querySelector("#bg-video");
-        video.playbackRate = 0.5;
-    }
-
     return (
         <>
-            <div className="relative h-screen w-full overflow-hidden ">
-                <video src={bgTheme} autoPlay loop muted className="absolute w-full h-full object-cover md:object-left object-left" id="bg-video" onLoadedData={setBgSpeed}></video>
+            <div className="fixed inset-0 w-full h-screen overflow-hidden">
+                <video
+                    key={bgTheme}
+                    src={bgTheme}
+                    autoPlay
+                    loop
+                    muted
+                    className="absolute inset-0 w-full h-full object-cover z-0" id="bg-video" onLoadedData={(e) => e.currentTarget.playbackRate = 0.5}></video>
+            </div>
+            <div className="relative z-10 w-full h-full">
                 {children}
             </div>
         </>
