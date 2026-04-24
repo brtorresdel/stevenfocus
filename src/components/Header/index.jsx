@@ -5,7 +5,7 @@ import { useTheme } from "../../hooks/useTheme";
 import { EllipsisVertical } from "lucide-react";
 
 export function Header() {
-    const { theme } = useTheme();
+    const { theme, themeConfig } = useTheme();
 
     const logos = {
         night: { logo: logoNight, alt: "Night Logo" },
@@ -22,7 +22,7 @@ export function Header() {
                 alt={logoSrc.alt}
                 className="h-auto w-40 sm:w-60 lg:w-72 xl:w-80 transition duration-200 ease-in-out hover:scale-110 cursor-pointer"
             />
-            <button className={`text-base-white bg-${theme}-primary/65 w-10 h-10 md:w-15 md:h-15 xl:w-20 xl:h-20 flex justify-center items-center rounded-full cursor-pointer`}>
+            <button className={`text-base-white ${themeConfig[theme].colors.btn} ${themeConfig[theme].colors.btnHover} w-10 h-10 md:w-15 md:h-15 xl:w-20 xl:h-20 flex justify-center items-center rounded-full cursor-pointer`}>
                 <EllipsisVertical className="w-7 h-7 md:w-10 md:h-10 xl:w-12 xl:h-12"/>
             </button>
         </header>
