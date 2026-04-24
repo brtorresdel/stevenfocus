@@ -1,0 +1,16 @@
+.timer-title {
+    font-family: var(--font-title);
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: var(--color-night-primary);
+    -webkit-text-stroke: var(--color-base-white) 1px;
+    text-shadow: 5px 5px 0  var(--color-night-secondary);
+}
+
+.timer-value {
+    font-family: var(--font-title);
+    font-weight: bold;
+    font-size: 4rem;
+    color: var(--color-base-white);
+    text-shadow: 5px 5px 0  var(--color-base-black-shadow);
+}

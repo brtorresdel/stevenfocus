@@ -1,11 +1,5 @@
 @import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 @font-face {
   font-family: crewniverse;
   src: url(./assets/fonts/crewniverse/crewniverse_font.otf);
@@ -56,6 +50,7 @@
 @theme {
   --color-base-white: #f0f0f0;
   --color-base-black: #121212;
+  --color-base-black-shadow: #12121280;
 
   --color-night-primary: #bf78ac;
   --color-night-secondary: #6986bf;
