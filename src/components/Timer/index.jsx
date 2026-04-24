@@ -1,6 +1,9 @@
 import "./timer.styles.css"
+import { useTheme } from "../../hooks/useTheme"
 
 export function Timer() {
+    const { theme } = useTheme();
+
     const radius = 120;
     const circunference = 2 * Math.PI * radius;
 
@@ -13,14 +16,14 @@ export function Timer() {
                 </svg>
 
                 <div className="absolute text-center select-none left-0 top-1/2 transform -translate-y-1/2 w-full">
-                    <h2 className="timer-title">Focus</h2>
+                    <h2 className="timer-title" style={{'color': `var(--color-${theme}-primary)`, 'text-shadow': `5px 5px 0  var(--color-${theme}-secondary)`}}>Focus</h2>
                     <span className="timer-value">
                         25:00
                     </span>
                 </div>
             </div>
 
-            <button className="bg-night-primary/80 hover:bg-night-primary text-base-white font-body py-2 px-4 rounded cursor-pointer">
+            <button className={`bg-${theme}-primary/80 hover:bg-${theme}-primary text-base-white font-body w-48 h-auto text-4xl py-2 rounded cursor-pointer`}>
                 Start
             </button>
         </>
