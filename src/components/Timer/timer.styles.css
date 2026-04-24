@@ -26,3 +26,27 @@
         font-size: 6.5rem;
     }
 }
+
+@media screen and (min-width: 1024px) {
+    .timer-title {
+        font-size: 2.5rem;
+        margin-bottom: -15px;
+        -webkit-text-stroke: var(--color-base-white) 2px;
+    }
+
+    .timer-value {
+        font-size: 4rem;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .timer-title {
+        font-size: 4rem;
+        margin-bottom: -30px;
+        -webkit-text-stroke: var(--color-base-white) 3px;
+    }
+
+    .timer-value {
+        font-size: 6.5rem;
+    }
+}
