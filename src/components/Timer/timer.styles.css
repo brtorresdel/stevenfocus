@@ -1,16 +1,18 @@
 .timer-title {
     font-family: var(--font-title);
-    font-weight: bold;
+    font-weight: 10000;
     font-size: 2.5rem;
     color: var(--color-night-primary);
-    -webkit-text-stroke: var(--color-base-white) 1px;
+    -webkit-text-stroke: var(--color-base-white) 2px;
     text-shadow: 5px 5px 0  var(--color-night-secondary);
+    margin-bottom: -15px;
 }
 
 .timer-value {
     font-family: var(--font-title);
-    font-weight: bold;
+    font-weight: 10000;
     font-size: 4rem;
     color: var(--color-base-white);
     text-shadow: 5px 5px 0  var(--color-base-black-shadow);
+    letter-spacing: 0.1em;
 }
