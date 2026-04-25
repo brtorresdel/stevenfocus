@@ -1,8 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/set-state-in-effect */
 import "./timer.styles.css"
+import useSound from "use-sound";
 import { useTheme } from "../../hooks/useTheme"
 import { useState, useEffect } from "react";
+import bellRing from "../../assets/sounds/bell_ring.mp3";
+import clockTick from "../../assets/sounds/clock_tick.m4a";
+import switchClick from "../../assets/sounds/switch_click.mp3";
+
 
 export function Timer() {
     const { theme, changeTheme, themeConfig } = useTheme();
@@ -12,10 +17,15 @@ export function Timer() {
     const [isRunning, setIsRunning] = useState(false);
     const [counter, setCounter] = useState(null);
     const [timerStrokeOffset, setTimerStrokeOffset] = useState(circunference * 1);
+    const [lastSecond, setLastSecond] = useState(4);
+    const [playSwitch] = useSound(switchClick);
+    const [playTick] = useSound(clockTick);
+    const [playRing] = useSound(bellRing);
 
     const [currentTimer, setCurrentTimer] = useState(themeConfig[theme].timer.value);
 
     const handleTimer = () => {
+        playSwitch();
         if (!isRunning) {
             setCounter(setInterval(() => {
                 setCurrentTimer((prevTimer) => {
@@ -38,9 +48,17 @@ export function Timer() {
         const newStrokeOffset = circunference * (0 + (currentTimer / themeConfig[theme].timer.value));
         setTimerStrokeOffset(newStrokeOffset);
 
+        if (lastSecond >= currentTimer && lastSecond != 0) {
+            setLastSecond(prev => --prev);
+            playTick();
+        }
+
         if (currentTimer === 0) {
+            playRing();
+            setLastSecond(4);
             clearInterval(counter);
             setIsRunning(false);
+
 
             changeTheme();
             setCurrentTimer(themeConfig[theme].timer.value);
