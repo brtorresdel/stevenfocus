@@ -20,12 +20,12 @@ export function Timer() {
             setCounter(setInterval(() => {
                 setCurrentTimer((prevTimer) => {
                     if (prevTimer > 0) {
-                        return prevTimer - 1;
+                        return prevTimer - 0.01;
                     }
                     clearInterval(counter);
                     return 0;
                 });
-            }, 1000));
+            }, 10));
             setIsRunning(true);
         } else {
             clearInterval(counter);
