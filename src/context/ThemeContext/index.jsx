@@ -6,12 +6,37 @@ export const ThemeContext = createContext();
 export function ThemeProvider({ children }) {
 
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "night");
+    const [preferences, setPreferences] = useState(localStorage.getItem("preferences") ? JSON.parse(localStorage.getItem("preferences")) : { timer: { night: 10, pink: 10, sunset: 10 }, sound: true, shortBreakCounter: 0, maxShortBreaks: 2 });
 
-    useEffect(() => localStorage.setItem("theme", theme), [theme]);
+    useEffect(() => {
+        localStorage.setItem("theme", theme);
+        localStorage.setItem("preferences", JSON.stringify(preferences));
+    }, [theme, preferences]);
 
     const THEME_OPTIONS = ["night", "pink", "sunset"];
 
-    const changeTheme = (newTheme) => {
+    const changeTheme = () => {
+
+        let newTheme;
+
+        switch (theme) {
+            case "night":
+                if (preferences.shortBreakCounter == preferences.maxShortBreaks) {
+                    newTheme = "sunset";
+                    setPreferences((prev) => ({ ...prev, shortBreakCounter: 0 }));
+                } else {
+                    newTheme = "pink";
+                    setPreferences((prev) => ({ ...prev, shortBreakCounter: prev.shortBreakCounter + 1 }));
+                }
+                break;
+            case "pink":
+                newTheme = "night";
+                break;
+            case "sunset":
+                newTheme = "night";
+                break;
+        }
+
         if (!THEME_OPTIONS.includes(newTheme)) {
             throw new Error(`Invalid theme theme: ${newTheme}. Valid options are: ${THEME_OPTIONS.join(", ")}`);
         } else {
@@ -27,7 +52,7 @@ export function ThemeProvider({ children }) {
         night: {
             timer: {
                 title: 'Focus',
-                value: 1500
+                value: preferences.timer.night
             },
             colors: {
                 primary: "var(--color-night-primary)",
@@ -39,7 +64,7 @@ export function ThemeProvider({ children }) {
         pink: {
             timer: {
                 title: 'Break',
-                value: 300
+                value: preferences.timer.pink
             },
             colors: {
                 primary: "var(--color-pink-primary)",
@@ -51,7 +76,7 @@ export function ThemeProvider({ children }) {
         sunset: {
             timer: {
                 title: 'Break',
-                value: 900
+                value: preferences.timer.sunset
             },
             colors: {
                 primary: "var(--color-sunset-primary)",

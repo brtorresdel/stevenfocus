@@ -42,13 +42,8 @@ export function Timer() {
             clearInterval(counter);
             setIsRunning(false);
 
-            if (theme === 'night') {
-                changeTheme('pink');
-                setCurrentTimer(themeConfig['pink'].timer.value);
-            } else {
-                changeTheme('night');
-                setCurrentTimer(themeConfig['night'].timer.value);
-            }
+            changeTheme();
+            setCurrentTimer(themeConfig[theme].timer.value);
         }
 
     }, [currentTimer, theme]);
