@@ -8,7 +8,9 @@ function App() {
   return (
     <Background>
       <Header />
-      <Timer />
+      <div>
+        <Timer />
+      </div>
     </Background>
   )
 }

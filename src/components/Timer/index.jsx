@@ -67,7 +67,7 @@ export function Timer() {
     }, [currentTimer, theme]);
 
     return (
-        <>
+        <div className="flex flex-col items-center">
             <div className="relative w-75 h-75 md:w-120 md:h-120 lg:w-75 lg:h-75 xl:w-120 xl:h-120 m-10">
                 <svg className="w-75 h-75 lg:w-75 lg:h-75 md:w-120 md:h-120 xl:w-120 xl:h-120 transform -rotate-90" viewBox="0 0 256 256">
                     <circle cx="128" cy="125" r={radius} fill="transparent" stroke="var(--color-base-white)" strokeWidth="6" />
@@ -85,6 +85,6 @@ export function Timer() {
             <button className={`${themeConfig[theme].colors.btn} ${themeConfig[theme].colors.btnHover} text-base-white font-body w-48 lg:w-48 md:w-70 xl:w-70 h-auto text-4xl lg:text-4xl md:text-6xl xl:text-6xl  py-2 lg:py-2 md:py-4 xl:py-4 rounded cursor-pointer`} onClick={handleTimer}>
                 {isRunning ? 'Pausar' : 'Iniciar'}
             </button>
-        </>
+        </div>
     )
 }
