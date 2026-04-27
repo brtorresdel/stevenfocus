@@ -1,0 +1,4 @@
+.todo-header {
+    text-shadow: 3px 3px 0  var(--color-base-black-shadow);
+    letter-spacing: 0.1em;
+}
