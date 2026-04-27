@@ -2,3 +2,9 @@
     text-shadow: 3px 3px 0  var(--color-base-black-shadow);
     letter-spacing: 0.1em;
 }
+
+.overflow-mask {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  transition: mask-image 0.4s ease-in-out;
+}
