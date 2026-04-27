@@ -47,7 +47,7 @@ export function ToDoList() {
                 <h2 className="todo-header font-title text-base-white text-lg sm:text-3xl lg:text-2xl xl:text-3xl">Lista de Tarefas</h2>
                 <button className="todo-header font-title text-base-white text-4xl hover:scale-150 duration-200 ease-in-out cursor-pointer">+</button>
             </div>
-            <div className="flex flex-col justify-center items-center overflow-x-scroll min-h-32">
+            <div className="flex flex-col justify-center items-center overflow-x-scroll min-h-32 gap-3">
                 {!tasks.length ?
                     <p className={`text-center w- font-body-light text-base-white text-lg lg:text-xl rounded-md`}>Nenhuma tarefa encontrada</p> :
                     tasks.map(task => <Task taskInfo={task} />)}
