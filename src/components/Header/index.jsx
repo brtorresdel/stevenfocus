@@ -16,7 +16,7 @@ export function Header() {
     const logoSrc = logos[theme] || logos.night;
 
     return (
-        <header className="relative z-10 top-10 left-0 w-full p-4 flex justify-around items-center">
+        <header className="relative z-10 top-10 left-0 w-full p-4 flex justify-around lg:justify-between items-center lg:pl-35 lg:pr-35">
             <img
                 src={logoSrc.logo}
                 alt={logoSrc.alt}
