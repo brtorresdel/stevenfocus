@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { Task } from "../Task";
 import { useState, useRef, useEffect } from "react";
 import "./todolist.styles.css";
