@@ -1,24 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { TasksContext } from '../../context/TasksContext/index';
 
 export function useTasks() {
-    const [tasks, setTasks] = useState(localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : []);
+    const context = useContext(TasksContext);
 
-    useEffect(() => {
-        localStorage.setItem("tasks", JSON.stringify(tasks));
-    }, [tasks])
-
-    const addTask = (task) => {
-        let lastId = tasks[tasks.length - 1].id;
-        setTasks(prev => [...prev, { id: lastId + 1, ...task }]);
+    if (!context) {
+        throw new Error("useTasks must be used within a TasksProvider");
     }
 
-    const editTask = (editedTask) => {
-        setTasks(prev => prev.map(task => task.id == editedTask.id ? editedTask : task))
-    }
-
-    const removeTask = (taskId) => {
-        setTasks(prev => prev.filter(task => task.id != taskId))
-    }
-
-    return { tasks, addTask, editTask, removeTask };
+    return context;
 }
