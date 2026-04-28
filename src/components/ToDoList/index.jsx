@@ -2,6 +2,7 @@
 import { Task } from "../Task";
 import { useState, useRef, useEffect } from "react";
 import "./todolist.styles.css";
+import { useTasks } from "../../hooks/useTasks";
 
 export function ToDoList() {
 
@@ -9,78 +10,7 @@ export function ToDoList() {
     const scrollRef = useRef(null);
     const bottomRef = useRef(null);
 
-    const tasks = [
-        {
-            id: "1",
-            name: "Treinar com a Pérola",
-            description: "Praticar esgrima e concentração na Arena das Nuvens.",
-            createdAt: "2026-04-27T10:00:00Z",
-            isCompleted: false
-        },
-        {
-            id: "2",
-            name: "Limpar o Quarto (Templo)",
-            description: "Organizar a bagunça mágica que a Ametista deixou espalhada.",
-            createdAt: "2026-04-27T11:30:00Z",
-            isCompleted: true
-        },
-        {
-            id: "3",
-            name: "Comer no Big Donut",
-            description: "Fazer uma pausa para um Gatinho Sorvete ou rosquinha.",
-            createdAt: "2026-04-27T12:00:00Z",
-            isCompleted: false
-        },
-        {
-            id: "4",
-            name: "Consertar a Van do Greg",
-            description: "Ajudar o pai com os novos equipamentos de som.",
-            createdAt: "2026-04-27T14:15:00Z",
-            isCompleted: false
-        },
-        {
-            id: "5",
-            name: "Meditar com a Garnet",
-            description: "Trabalhar no equilíbrio e na visão do futuro.",
-            createdAt: "2026-04-27T15:45:00Z",
-            isCompleted: false
-        },
-        {
-            id: "1",
-            name: "Treinar com a Pérola",
-            description: "Praticar esgrima e concentração na Arena das Nuvens.",
-            createdAt: "2026-04-27T10:00:00Z",
-            isCompleted: false
-        },
-        {
-            id: "2",
-            name: "Limpar o Quarto (Templo)",
-            description: "Organizar a bagunça mágica que a Ametista deixou espalhada.",
-            createdAt: "2026-04-27T11:30:00Z",
-            isCompleted: true
-        },
-        {
-            id: "3",
-            name: "Comer no Big Donut",
-            description: "Fazer uma pausa para um Gatinho Sorvete ou rosquinha.",
-            createdAt: "2026-04-27T12:00:00Z",
-            isCompleted: false
-        },
-        {
-            id: "4",
-            name: "Consertar a Van do Greg",
-            description: "Ajudar o pai com os novos equipamentos de som.",
-            createdAt: "2026-04-27T14:15:00Z",
-            isCompleted: false
-        },
-        {
-            id: "5",
-            name: "Meditar com a Garnet",
-            description: "Trabalhar no equilíbrio e na visão do futuro.",
-            createdAt: "2026-04-27T15:45:00Z",
-            isCompleted: false
-        }
-    ];
+    let { tasks } = useTasks();
 
     useEffect(() => {
         // Configuramos o observador
