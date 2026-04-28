@@ -110,7 +110,7 @@ export function ToDoList() {
             </div>
             <div
                 ref={scrollRef}
-                className={`block flex-col justify-center items-center overflow-auto min-h-32 max-h-90 gap-3 list-container ${!atFinalList && tasks.length > 3 ? 'overflow-mask' : ''}`}>
+                className={`block flex-col justify-center items-center overflow-auto min-h-32 max-h-90 xl:max-h-145 gap-3 list-container ${!atFinalList && tasks.length > 3 ? 'overflow-mask' : ''}`}>
                 {!tasks.length ?
                     <p className={`text-center w- font-body-light text-base-white text-lg lg:text-xl rounded-md`}>Nenhuma tarefa encontrada</p> :
                     tasks.map(task => <Task taskInfo={task} />)}
