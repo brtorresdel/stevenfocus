@@ -14,7 +14,7 @@ export function ModalProvider({ children }) {
     const [deleteTaskView, setDeleteTaskView] = useState(false);
 
     const [preferenceView, setPreferenceView] = useState(false);
-    const [aboutView, setAboutView] = useState(false);
+    const [aboutView, setAboutView] = useState(true);
 
     const [task, setTask] = useState(null);
 

@@ -8,6 +8,8 @@ import { TaskAdd } from './components/TaskAdd'
 import { TaskDescription } from './components/TaskDescription'
 import { TaskEdit } from './components/TaskEdit'
 import { TaskDelete } from './components/TaskDelete'
+import { Preferences } from './components/Preferences'
+import { About } from './components/About'
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <TaskDescription />
         <TaskEdit />
         <TaskDelete />
+        <Preferences />
+        <About />
       </Modal>
     </Background>
   )
