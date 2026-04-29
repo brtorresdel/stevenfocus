@@ -2,7 +2,7 @@ import { useModal } from "../../hooks/useModal"
 import { Pen, Trash2 } from "lucide-react";
 
 export function TaskDescription() {
-    const { taskDescriptionView, task } = useModal();
+    const { taskDescriptionView, task, openEditTaskView } = useModal();
 
     if (!taskDescriptionView) return null;
 
@@ -22,7 +22,7 @@ export function TaskDescription() {
                 </div>
             </div>
             <div className="w-full h-10 flex flex-row justify-evenly items-center mt-10">
-                <button>
+                <button onClick={() => openEditTaskView(task)}>
                     <Pen className="w-10 h-10 cursor-pointer hover:scale-125 transition duration-100 ease-in-out" />
                 </button>
                 <button>

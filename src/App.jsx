@@ -6,6 +6,7 @@ import { Timer } from './components/Timer'
 import { ToDoList } from './components/ToDoList'
 import { TaskAdd } from './components/TaskAdd'
 import { TaskDescription } from './components/TaskDescription'
+import { TaskEdit } from './components/TaskEdit'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Modal>
         <TaskAdd />
         <TaskDescription />
+        <TaskEdit />
       </Modal>
     </Background>
   )

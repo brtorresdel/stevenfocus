@@ -15,7 +15,6 @@ export function Task({ taskInfo }) {
                 <CheckCheck className={`hover:scale-140 transition duration-200 ${taskInfo.isCompleted ? "" : "hidden"}`} />
                 <p className="sm:text-xl">{taskInfo.name}</p>
             </div>
-            <Pen className="hidden sm:block" />
         </button>
     )
 }

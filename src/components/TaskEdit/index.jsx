@@ -1,32 +1,43 @@
+import { useModal } from "../../hooks/useModal"
 import { useForm } from "react-hook-form";
 import { useTasks } from "../../hooks/useTasks";
-import { useModal } from "../../hooks/useModal";
-import { FormLabel } from './../FormLabel/index';
+import { FormLabel } from "../FormLabel";
+import { useEffect } from "react";
 
-export function TaskAdd() {
+export function TaskEdit() {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const { addTask } = useTasks();
-    const { addTaskView, closeModalView } = useModal();
+    const { editTask } = useTasks();
+    const { editTaskView, task, closeModalView } = useModal();
 
 
     const onSubmit = (data) => {
-        addTask({
+        editTask({
+            id: task.id,
             name: data.taskName,
             description: data.taskDescription,
-            createdAt: new Date(),
-            isCompleted: false
+            createdAt: task.createdAt,
+            isCompleted: task.isCompleted
         })
 
         reset();
         closeModalView();
     }
 
-    if (!addTaskView) return null;
+    useEffect(() => {
+        if (task) {
+            reset({
+                taskName: task.name,
+                taskDescription: task.description
+            })
+        }
+    }, [task, reset]);
+
+    if (!editTaskView) return null;
 
     return (
         <>
-            <h2 className="text-2xl">Adicionar Tarefa</h2>
+            <h2 className="text-2xl">Editar Tarefa</h2>
             <hr className="border-dashed text-base-white mt-5 mb-5" />
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5 w-full justify-center">
 
