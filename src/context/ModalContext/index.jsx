@@ -14,12 +14,13 @@ export function ModalProvider({ children }) {
     const [deleteTaskView, setDeleteTaskView] = useState(false);
 
     const [preferenceView, setPreferenceView] = useState(false);
+    const [aboutView, setAboutView] = useState(false);
 
     const [task, setTask] = useState(null);
 
     useEffect(() => {
-        if (addTaskView || taskDescriptionView || editTaskView || deleteTaskView) setModalView(true);
-    }, [addTaskView, taskDescriptionView, editTaskView, deleteTaskView]);
+        if (addTaskView || taskDescriptionView || editTaskView || deleteTaskView || preferenceView || aboutView) setModalView(true);
+    }, [addTaskView, taskDescriptionView, editTaskView, deleteTaskView, preferenceView, aboutView]);
 
     const closeModalView = () => {
         setModalView(false);
@@ -28,6 +29,7 @@ export function ModalProvider({ children }) {
         setEditTaskView(false);
         setDeleteTaskView(false);
         setPreferenceView(false);
+        setAboutView(false);
         setTask(null);
     };
 
@@ -52,8 +54,16 @@ export function ModalProvider({ children }) {
         setDeleteTaskView(true);
     }
 
+    const openPreferenceView = () => {
+        setPreferenceView(true);
+    }
+
+    const openAboutView = () => {
+        setAboutView(true);
+    }
+
     return (
-        <ModalContext.Provider value={{ modalView, closeModalView, addTaskView, openAddTaskView, task, taskDescriptionView, openTaskDescriptionView, editTaskView, openEditTaskView, deleteTaskView, openDeleteTaskView }}>
+        <ModalContext.Provider value={{ modalView, closeModalView, addTaskView, openAddTaskView, task, taskDescriptionView, openTaskDescriptionView, editTaskView, openEditTaskView, deleteTaskView, openDeleteTaskView, preferenceView, openPreferenceView, aboutView, openAboutView }}>
             {children}
         </ModalContext.Provider>
     )
