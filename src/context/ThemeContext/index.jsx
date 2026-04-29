@@ -48,6 +48,18 @@ export function ThemeProvider({ children }) {
         throw new Error(`Invalid theme theme: ${theme}. Valid options are: ${THEME_OPTIONS.join(", ")}`);
     }
 
+    const changeTimer = (night = preferences.timer.night, pink = preferences.timer.pink, sunset = preferences.timer.sunset) => {
+        setPreferences({ ...preferences, timer: { night: night, pink: pink, sunset: sunset } });
+    };
+
+    const setSounds = (option) => {
+        setPreferences({ ...preferences, sound: option });
+    }
+
+    const setMaxShortBreaks = (count) => {
+        setPreferences({ ...preferences, maxShortBreaks: count });
+    }
+
     const themeConfig = {
         night: {
             timer: {
@@ -89,7 +101,7 @@ export function ThemeProvider({ children }) {
 
 
     return (
-        <ThemeContext.Provider value={{ theme, changeTheme, themeConfig }}>
+        <ThemeContext.Provider value={{ theme, changeTheme, themeConfig, changeTimer, setSounds, setMaxShortBreaks }}>
             {children}
         </ThemeContext.Provider>
     );
