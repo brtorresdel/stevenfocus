@@ -9,7 +9,7 @@ export function TaskDelete() {
     if (!deleteTaskView) return null;
 
     const handleDeleteTask = () => {
-        removeTask(task);
+        removeTask(task.id);
 
         closeModalView();
     };
