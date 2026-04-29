@@ -46,8 +46,14 @@ export function ModalProvider({ children }) {
         setEditTaskView(true);
     }
 
+    const openDeleteTaskView = (task) => {
+        setTask(task);
+        setTaskDescriptionView(false);
+        setDeleteTaskView(true);
+    }
+
     return (
-        <ModalContext.Provider value={{ modalView, closeModalView, addTaskView, openAddTaskView, task, taskDescriptionView, openTaskDescriptionView, editTaskView, openEditTaskView }}>
+        <ModalContext.Provider value={{ modalView, closeModalView, addTaskView, openAddTaskView, task, taskDescriptionView, openTaskDescriptionView, editTaskView, openEditTaskView, deleteTaskView, openDeleteTaskView }}>
             {children}
         </ModalContext.Provider>
     )

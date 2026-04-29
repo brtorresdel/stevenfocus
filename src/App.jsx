@@ -7,6 +7,7 @@ import { ToDoList } from './components/ToDoList'
 import { TaskAdd } from './components/TaskAdd'
 import { TaskDescription } from './components/TaskDescription'
 import { TaskEdit } from './components/TaskEdit'
+import { TaskDelete } from './components/TaskDelete'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <TaskAdd />
         <TaskDescription />
         <TaskEdit />
+        <TaskDelete />
       </Modal>
     </Background>
   )
