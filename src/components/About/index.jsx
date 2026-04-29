@@ -2,6 +2,7 @@ import about from "../../data/about.json";
 import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { IoLogoGithub } from "react-icons/io";
 import { FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa";
+import { useModal } from "../../hooks/useModal";
 
 const socialMediaIcons = {
     github: <IoLogoGithub />,
@@ -13,6 +14,10 @@ const socialMediaIcons = {
 }
 
 export function About() {
+    const {aboutView} = useModal();
+
+    if (!aboutView) return null;
+
     return (
         <div className="flex flex-col gap-5 sm:gap-7">
             <div className="flex flex-col gap-2">
