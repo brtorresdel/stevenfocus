@@ -1,9 +1,12 @@
+import { useModal } from "../../hooks/useModal";
 import { useTheme } from "../../hooks/useTheme"
 import { X } from "lucide-react";
 
-export function Modal({ children, modalView, closeModalView }) {
+export function Modal({ children }) {
 
     const { theme, themeConfig } = useTheme();
+
+    const {modalView, closeModalView} = useModal();
 
     if (!modalView) return null;
 

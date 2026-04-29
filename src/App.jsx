@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/set-state-in-effect */
-import { useEffect, useState } from 'react'
 import './App.css'
 import { Background } from './components/Background'
 import { Header } from './components/Header'
@@ -7,11 +6,8 @@ import { Modal } from './components/Modal'
 import { Timer } from './components/Timer'
 import { ToDoList } from './components/ToDoList'
 import { TaskAdd } from './components/TaskAdd'
-import { useModal } from './hooks/useModal'
 
 function App() {
-
-  const { modalView, closeModalView, addTaskView, openAddTaskView } = useModal();
 
   return (
     <Background>
@@ -19,10 +15,10 @@ function App() {
       <div className='w-4/5 flex flex-col lg:w-full lg:justify-center lg:flex-row-reverse'>
         <Timer />
         <hr className='mt-10 text-base-white border-dashed w-auto text-center border-2 lg:hidden' />
-        <ToDoList openAddTaskForm={openAddTaskView} />
+        <ToDoList />
       </div>
-      <Modal modalView={modalView} closeModalView={closeModalView}>
-        <TaskAdd active={addTaskView} close={closeModalView} />
+      <Modal>
+        <TaskAdd />
       </Modal>
     </Background>
   )

@@ -2,12 +2,15 @@ import { Task } from "../Task";
 import { useState, useRef, useEffect } from "react";
 import "./todolist.styles.css";
 import { useTasks } from "../../hooks/useTasks";
+import { useModal } from "../../hooks/useModal";
 
-export function ToDoList({ openAddTaskForm }) {
+export function ToDoList() {
 
     const [atFinalList, setAtFinalList] = useState(false);
     const scrollRef = useRef(null);
     const bottomRef = useRef(null);
+
+    const { openAddTaskView } = useModal();
 
     const { tasks } = useTasks();
 
@@ -37,7 +40,7 @@ export function ToDoList({ openAddTaskForm }) {
             <div className="flex flex-row justify-between items-center w-full mb-1 sm:mb-3">
                 <h2 className="todo-header font-title text-base-white text-lg sm:text-3xl lg:text-2xl xl:text-3xl">Lista de Tarefas</h2>
                 <button
-                    onClick={openAddTaskForm}
+                    onClick={openAddTaskView}
                     className="todo-header font-title text-base-white text-4xl hover:scale-150 duration-200 ease-in-out cursor-pointer">+</button>
             </div>
             <div

@@ -1,11 +1,13 @@
 import { useForm } from "react-hook-form";
 import { useTasks } from "../../hooks/useTasks";
+import { useModal } from "../../hooks/useModal";
 
-export function TaskAdd({ active, close }) {
+export function TaskAdd() {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-
     const { addTask } = useTasks();
+    const { addTaskView, closeModalView } = useModal();
+
 
     const onSubmit = (data) => {
         console.log(data);
@@ -18,10 +20,10 @@ export function TaskAdd({ active, close }) {
         })
 
         reset();
-        close();
+        closeModalView();
     }
 
-    if (!active) return null;
+    if (!addTaskView) return null;
 
     return (
         <>
