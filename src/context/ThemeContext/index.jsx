@@ -61,6 +61,8 @@ export function ThemeProvider({ children }) {
     }
 
     const themeConfig = {
+        sounds: preferences.sound,
+        maxShortBreaks: preferences.maxShortBreaks,
         night: {
             timer: {
                 title: 'Focus',
