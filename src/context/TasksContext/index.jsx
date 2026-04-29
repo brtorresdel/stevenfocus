@@ -12,8 +12,8 @@ export function TasksProvider({ children }) {
     }, [tasks]);
 
     const addTask = (newTask) => {
-        let lastId = tasks.length > 0 ? tasks[tasks.length - 1].id : 0;
-        setTasks(prev => [...prev, { id: lastId, ...newTask }]);
+        let id = tasks.length > 0 ? tasks[tasks.length - 1].id + 1 : 1;
+        setTasks(prev => [...prev, { id: id, ...newTask }]);
     }
 
     const editTask = (editedTask) => {
