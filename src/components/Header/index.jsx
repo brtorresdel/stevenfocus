@@ -47,9 +47,9 @@ export function Header() {
                 className={`text-base-white ${themeConfig[theme].colors.btn} ${themeConfig[theme].colors.btnHover} w-10 h-10 md:w-15 md:h-15 xl:w-20 xl:h-20 flex justify-center items-center rounded-full cursor-pointer`}>
                     <EllipsisVertical className="w-7 h-7 md:w-10 md:h-10 xl:w-12 xl:h-12" />
                 </button>
-                <div className={`${menuOpen ? "absolute" : "hidden"} right-0 ${themeConfig[theme].colors.btn} p-4 flex flex-col gap-4 mt-2 rounded-lg font-body text-base-white text-2xl`}>
+                <div className={`${menuOpen ? "absolute" : "hidden"} right-0 ${themeConfig[theme].colors.btn} w-60 p-4 flex flex-col gap-4 mt-2 rounded-lg font-body text-base-white text-2xl`}>
                     <button onClick={handlePreferencesClick} className={`${themeConfig[theme].colors.btnHover} pl-4 pr-4 pt-2 pb-2 rounded-lg cursor-pointer`}>Preferências</button>
-                    <button onClick={handleAboutClick} className={`${themeConfig[theme].colors.btnHover} pl-4 pr-4 pt-2 pb-2 rounded-lg cursor-pointer`}>Sobre o dev</button>
+                    <button onClick={handleAboutClick} className={`${themeConfig[theme].colors.btnHover} pl-4 pr-4 pt-2 pb-2 rounded-lg cursor-pointer`}>Sobre este projeto</button>
                 </div>
             </div>
         </header>

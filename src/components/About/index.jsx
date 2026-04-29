@@ -14,40 +14,44 @@ const socialMediaIcons = {
 }
 
 export function About() {
-    const {aboutView} = useModal();
+    const { aboutView } = useModal();
 
     if (!aboutView) return null;
 
     return (
-        <div className="flex flex-col gap-5 sm:gap-7">
-            <div className="flex flex-col gap-2">
-                <div className="flex flex-row items-end gap-2">
-                    <h2 className="text-xl sm:text-2xl">Dev:</h2>
-                    <p className="text-2xl sm:text-4xl">{about.dev.name}</p>
+        <>
+            <h2 className="text-2xl">Sobre este projeto</h2>
+            <hr className="border-dashed text-base-white mt-5 mb-5" />
+            <div className="flex flex-col gap-5 sm:gap-7">
+                <div className="flex flex-col gap-2">
+                    <div className="flex flex-row items-end gap-2">
+                        <h2 className="text-xl sm:text-2xl">Desenvolvido por:</h2>
+                        <p className="text-2xl sm:text-4xl">{about.dev.name}</p>
+                    </div>
+                    <div className="flex flex-row gap-2 text-4xl sm:text-6xl">
+                        {about.dev.socialMedia.map(soc => {
+                            return <a href={soc.link} className="hover:scale-140 transition duration-200 ease-in-out">
+                                {socialMediaIcons[soc.name]}
+                            </a>
+                        })}
+                    </div>
                 </div>
-                <div className="flex flex-row gap-2 text-4xl sm:text-6xl">
-                    {about.dev.socialMedia.map(soc => {
-                        return <a href={soc.link} className="hover:scale-140 transition duration-200 ease-in-out">
-                            {socialMediaIcons[soc.name]}
-                        </a>
-                    })}
-                </div>
-            </div>
 
-            <div className="flex flex-col gap-2">
-                <div className="flex flex-row items-end gap-2">
-                    <h2 className="text-xl sm:text-2xl">Design / Arts:</h2>
-                    <p className="text-2xl sm:text-4xl">{about.design.name}</p>
+                <div className="flex flex-col gap-2">
+                    <div className="flex flex-row items-end gap-2">
+                        <h2 className="text-xl sm:text-2xl">Design / Arts:</h2>
+                        <p className="text-2xl sm:text-4xl">{about.design.name}</p>
+                    </div>
+                    <div className="flex flex-row gap-2 text-4xl sm:text-6xl">
+                        {about.design.socialMedia.map(soc => {
+                            return <a href={soc.link} className="hover:scale-140 transition duration-200 ease-in-out">
+                                {socialMediaIcons[soc.name]}
+                            </a>
+                        })}
+                    </div>
                 </div>
-                <div className="flex flex-row gap-2 text-4xl sm:text-6xl">
-                    {about.design.socialMedia.map(soc => {
-                        return <a href={soc.link} className="hover:scale-140 transition duration-200 ease-in-out">
-                            {socialMediaIcons[soc.name]}
-                        </a>
-                    })}
-                </div>
-            </div>
 
-        </div>
+            </div>
+        </>
     )
 }
