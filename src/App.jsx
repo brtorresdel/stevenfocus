@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/set-state-in-effect */
 import './App.css'
 import { Background } from './components/Background'
 import { Header } from './components/Header'
@@ -6,9 +5,9 @@ import { Modal } from './components/Modal'
 import { Timer } from './components/Timer'
 import { ToDoList } from './components/ToDoList'
 import { TaskAdd } from './components/TaskAdd'
+import { TaskDescription } from './components/TaskDescription'
 
 function App() {
-
   return (
     <Background>
       <Header />
@@ -19,6 +18,7 @@ function App() {
       </div>
       <Modal>
         <TaskAdd />
+        <TaskDescription />
       </Modal>
     </Background>
   )
