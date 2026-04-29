@@ -7,24 +7,11 @@ import { Modal } from './components/Modal'
 import { Timer } from './components/Timer'
 import { ToDoList } from './components/ToDoList'
 import { TaskAdd } from './components/TaskAdd'
+import { useModal } from './hooks/useModal'
 
 function App() {
 
-  const [modalView, setModalView] = useState(false);
-  const [addTaskView, setAddTaskView] = useState(false);
-
-  const closeModalView = () => {
-    setModalView(false);
-    setAddTaskView(false);
-  };
-
-  const openAddTaskView = () => {
-    setAddTaskView(true);
-  };
-
-  useEffect(() => {
-    if (addTaskView) setModalView(true);
-  }, [addTaskView]);
+  const { modalView, closeModalView, addTaskView, openAddTaskView } = useModal();
 
   return (
     <Background>
