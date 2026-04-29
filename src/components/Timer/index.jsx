@@ -25,7 +25,7 @@ export function Timer() {
     const [currentTimer, setCurrentTimer] = useState(themeConfig[theme].timer.value);
 
     const handleTimer = () => {
-        playSwitch();
+        themeConfig.sounds && playSwitch();
         if (!isRunning) {
             setCounter(setInterval(() => {
                 setCurrentTimer((prevTimer) => {
@@ -50,11 +50,11 @@ export function Timer() {
 
         if (lastSecond >= currentTimer && lastSecond != 0) {
             setLastSecond(prev => --prev);
-            playTick();
+            themeConfig.sounds && playTick();
         }
 
         if (currentTimer === 0) {
-            playRing();
+            themeConfig.sounds && playRing();
             setLastSecond(4);
             clearInterval(counter);
             setIsRunning(false);
