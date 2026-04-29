@@ -4,9 +4,11 @@ import logoPink from "../../assets/logo/pink.png";
 import logoSunset from "../../assets/logo/sunset.png";
 import { useTheme } from "../../hooks/useTheme";
 import { EllipsisVertical } from "lucide-react";
+import { useModal } from './../../hooks/useModal/index';
 
 export function Header() {
     const { theme, themeConfig } = useTheme();
+    const { openPreferenceView, openAboutView } = useModal();
 
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -15,10 +17,12 @@ export function Header() {
     };
 
     const handlePreferencesClick = () => {
+        openPreferenceView();
         setMenuOpen(!menuOpen);
     }
 
     const handleAboutClick = () => {
+        openAboutView();
         setMenuOpen(!menuOpen);
     }
 
