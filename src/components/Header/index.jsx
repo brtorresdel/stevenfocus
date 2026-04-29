@@ -14,6 +14,14 @@ export function Header() {
         setMenuOpen(!menuOpen);
     };
 
+    const handlePreferencesClick = () => {
+        setMenuOpen(!menuOpen);
+    }
+
+    const handleAboutClick = () => {
+        setMenuOpen(!menuOpen);
+    }
+
     const logos = {
         night: { logo: logoNight, alt: "Night Logo" },
         pink: { logo: logoPink, alt: "Pink Logo" },
@@ -36,8 +44,8 @@ export function Header() {
                     <EllipsisVertical className="w-7 h-7 md:w-10 md:h-10 xl:w-12 xl:h-12" />
                 </button>
                 <div className={`${menuOpen ? "absolute" : "hidden"} right-0 ${themeConfig[theme].colors.btn} p-4 flex flex-col gap-4 mt-2 rounded-lg font-body text-base-white text-2xl`}>
-                    <button className={`${themeConfig[theme].colors.btnHover} pl-4 pr-4 pt-2 pb-2 rounded-lg cursor-pointer`}>Preferências</button>
-                    <button className={`${themeConfig[theme].colors.btnHover} pl-4 pr-4 pt-2 pb-2 rounded-lg cursor-pointer`}>Sobre o dev</button>
+                    <button onClick={handlePreferencesClick} className={`${themeConfig[theme].colors.btnHover} pl-4 pr-4 pt-2 pb-2 rounded-lg cursor-pointer`}>Preferências</button>
+                    <button onClick={handleAboutClick} className={`${themeConfig[theme].colors.btnHover} pl-4 pr-4 pt-2 pb-2 rounded-lg cursor-pointer`}>Sobre o dev</button>
                 </div>
             </div>
         </header>
