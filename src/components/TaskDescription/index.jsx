@@ -2,7 +2,7 @@ import { useModal } from "../../hooks/useModal"
 import { Pen, Trash2 } from "lucide-react";
 
 export function TaskDescription() {
-    const { taskDescriptionView } = useModal();
+    const { taskDescriptionView, task } = useModal();
 
     if (!taskDescriptionView) return null;
 
@@ -13,12 +13,12 @@ export function TaskDescription() {
             <div className="flex flex-col gap-10">
                 <div>
                     <h3>Nome</h3>
-                    <p className="text-2xl">Nome da tarefa</p>
+                    <p className="text-2xl">{task.name}</p>
                 </div>
 
                 <div>
                     <h3 >Descrição</h3>
-                    <p className="text-2xl">Descrição</p>
+                    <p className="text-2xl">{task.description ? task.description : "Sem descrição"}</p>
                 </div>
             </div>
             <div className="w-full h-10 flex flex-row justify-evenly items-center mt-10">
