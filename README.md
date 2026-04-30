@@ -10,7 +10,7 @@
 
 Este projeto foi contruído utilizando:
 
-- **React (Vite) + JS (ES¨+):** Framework para interface reativa e linguagem para hooks e manipulação de elementos
+- **React (Vite) + JS (ES6+):** Framework para interface reativa e linguagem para hooks e manipulação de elementos
 - **Tailwind CSS:** Estilização responsiva e customizada, utilizando classes utilitárias
 - **React Hook Form:** Gerenciamento de formuários e validação de entrada de dados
 - **Context API & Custom Hooks:** Gerenciamento de estado global para temas e tarefas
