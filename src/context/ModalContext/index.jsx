@@ -13,7 +13,7 @@ export function ModalProvider({ children }) {
     const [editTaskView, setEditTaskView] = useState(false);
     const [deleteTaskView, setDeleteTaskView] = useState(false);
 
-    const [preferenceView, setPreferenceView] = useState(true);
+    const [preferenceView, setPreferenceView] = useState(false);
     const [aboutView, setAboutView] = useState(false);
 
     const [task, setTask] = useState(null);

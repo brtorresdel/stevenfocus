@@ -8,7 +8,7 @@ import { useState } from "react";
 
 export function Preferences() {
     const { preferenceView } = useModal();
-    const { setSounds, themeConfig, changeTimer, refreshThemeConfig } = useTheme();
+    const { setSounds, themeConfig, changeTimer } = useTheme();
     const [playSwitch] = useSound(switchClick);
 
     const [focusValue, setFocusValue] = useState(themeConfig.night.timer.value / 60);
