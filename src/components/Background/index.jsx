@@ -26,6 +26,7 @@ export function Background({ children }) {
                     autoPlay
                     loop
                     muted
+                    playsInline
                     className="absolute inset-0 w-full h-full object-cover z-0  opacity-80" id="bg-video" onLoadedData={(e) => e.currentTarget.playbackRate = 0.5}></video>
             </div>
             <div className="relative z-10 w-full h-full flex flex-col items-center justify-center">
