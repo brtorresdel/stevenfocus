@@ -1,16 +1,23 @@
-import { useState } from "react";
 import { useTheme } from "../../hooks/useTheme";
 import { useTasks } from "../../hooks/useTasks";
+import useSound from "use-sound";
+import switchClick from "../../assets/sounds/switch_click.mp3";
 
 export function ToDoListExibition() {
     
     const { theme, themeConfig } = useTheme();
     const {toDoListExibition, handleToDoListExibition} = useTasks();
+    const [playSwitch] = useSound(switchClick);
+
+    const handleClick = () => {
+        themeConfig.sounds && playSwitch();
+        handleToDoListExibition()
+    }
 
     return (
         <div className="fixed left-10 bottom-10 hidden lg:flex flex-row items-center gap-3 text-base-white text-2xl font-body">
             <button 
-            onClick={handleToDoListExibition}
+            onClick={handleClick}
             className="bg-base-white w-20 h-12 rounded-full opacity-65 flex items-center pl-1 pr-1">
                 <div className={`${themeConfig[theme].colors.btn} ${themeConfig[theme].colors.btnHover} w-10 h-10 rounded-full ${toDoListExibition ? "transform translate-x-8" : ""}`} />
             </button>

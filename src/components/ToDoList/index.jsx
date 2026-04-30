@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import "./todolist.styles.css";
 import { useTasks } from "../../hooks/useTasks";
 import { useModal } from "../../hooks/useModal";
+import { ToDoListExibition } from './../ToDoListExibition/index';
 
 export function ToDoList() {
 
@@ -12,7 +13,7 @@ export function ToDoList() {
 
     const { openAddTaskView } = useModal();
 
-    const { tasks } = useTasks();
+    const { tasks, toDoListExibition } = useTasks();
 
 
     useEffect(() => {
@@ -36,7 +37,7 @@ export function ToDoList() {
     }, [tasks]); // Re-observa se a lista mudar
 
     return (
-        <div className="mt-5 sm:mt-10 w-full lg:w-2/5">
+        <div className={`mt-5 sm:mt-10 w-full lg:w-2/5 ${!toDoListExibition ? "lg:invisible" : ""}`}>
             <div className="flex flex-row justify-between items-center w-full mb-1 sm:mb-3">
                 <h2 className="todo-header font-title text-base-white text-lg sm:text-3xl lg:text-2xl xl:text-3xl">Lista de Tarefas</h2>
                 <button
