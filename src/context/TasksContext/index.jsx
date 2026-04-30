@@ -6,6 +6,7 @@ export const TasksContext = createContext();
 export function TasksProvider({ children }) {
 
     const [tasks, setTasks] = useState(localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : []);
+    const [toDoListExibition, setToDoListExibition] = useState(false);
 
     useEffect(() => {
         localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -24,8 +25,12 @@ export function TasksProvider({ children }) {
         setTasks(prev => prev.filter(task => task.id != taskId))
     }
 
+    const handleToDoListExibition = () => {
+        setToDoListExibition(!toDoListExibition);
+    }
+
     return (
-        <TasksContext.Provider value={{ tasks, addTask, editTask, removeTask }}>
+        <TasksContext.Provider value={{ tasks, addTask, editTask, removeTask, toDoListExibition, handleToDoListExibition }}>
             {children}
         </TasksContext.Provider>
     )

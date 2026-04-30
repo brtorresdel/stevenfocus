@@ -19,7 +19,7 @@ export function Background({ children }) {
 
     return (
         <>
-            <div className="fixed inset-0 w-full h-screen overflow-hidden bg-black">
+            <div className="fixed inset-0 w-full h-screen overflow-hidden bg-base-black">
                 <video
                     key={bgTheme}
                     src={bgTheme}

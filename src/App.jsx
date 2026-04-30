@@ -10,6 +10,7 @@ import { TaskEdit } from './components/TaskEdit'
 import { TaskDelete } from './components/TaskDelete'
 import { Preferences } from './components/Preferences'
 import { About } from './components/About'
+import { ToDoListExibition } from './components/ToDoListExibition/index';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <hr className='mt-10 text-base-white border-dashed w-auto text-center border-2 lg:hidden' />
         <ToDoList />
       </div>
+      <ToDoListExibition />
       <Modal>
         <TaskAdd />
         <TaskDescription />
