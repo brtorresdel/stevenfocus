@@ -6,7 +6,7 @@ export const ThemeContext = createContext();
 export function ThemeProvider({ children }) {
 
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "night");
-    const [preferences, setPreferences] = useState(localStorage.getItem("preferences") ? JSON.parse(localStorage.getItem("preferences")) : { timer: { night: 10, pink: 10, sunset: 10 }, sound: true, shortBreakCounter: 0, maxShortBreaks: 2 });
+    const [preferences, setPreferences] = useState(localStorage.getItem("preferences") ? JSON.parse(localStorage.getItem("preferences")) : { timer: { night: 1500, pink: 300, sunset: 900 }, sound: true, shortBreakCounter: 0, maxShortBreaks: 2 });
 
     useEffect(() => {
         localStorage.setItem("theme", theme);
