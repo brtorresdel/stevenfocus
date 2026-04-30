@@ -25,12 +25,16 @@ export function TasksProvider({ children }) {
         setTasks(prev => prev.filter(task => task.id != taskId))
     }
 
+    const handleCompletedTask = (taskId) => {
+        setTasks(prev => prev.map(task => task.id == taskId ? { ...task, isCompleted: !task.isCompleted } : task))
+    }
+
     const handleToDoListExibition = () => {
         setToDoListExibition(!toDoListExibition);
     }
 
     return (
-        <TasksContext.Provider value={{ tasks, addTask, editTask, removeTask, toDoListExibition, handleToDoListExibition }}>
+        <TasksContext.Provider value={{ tasks, addTask, editTask, removeTask, handleCompletedTask, toDoListExibition, handleToDoListExibition }}>
             {children}
         </TasksContext.Provider>
     )
