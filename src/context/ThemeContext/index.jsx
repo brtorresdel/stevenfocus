@@ -10,7 +10,7 @@ export function ThemeProvider({ children }) {
 
     useEffect(() => {
         localStorage.setItem("theme", theme);
-        localStorage.setItem("preferences", JSON.stringify(preferences));
+        localStorage.setItem("preferences", JSON.stringify(preferences));        
     }, [theme, preferences]);
 
     const THEME_OPTIONS = ["night", "pink", "sunset"];
@@ -48,7 +48,7 @@ export function ThemeProvider({ children }) {
         throw new Error(`Invalid theme theme: ${theme}. Valid options are: ${THEME_OPTIONS.join(", ")}`);
     }
 
-    const changeTimer = (night = preferences.timer.night, pink = preferences.timer.pink, sunset = preferences.timer.sunset) => {
+    const changeTimer = ({night = preferences.timer.night, pink = preferences.timer.pink, sunset = preferences.timer.sunset}) => {
         setPreferences({ ...preferences, timer: { night: night, pink: pink, sunset: sunset } });
     };
 
@@ -99,8 +99,7 @@ export function ThemeProvider({ children }) {
                 btnHover: "hover:bg-sunset-primary"
             }
         }
-    }
-
+    };
 
     return (
         <ThemeContext.Provider value={{ theme, changeTheme, themeConfig, changeTimer, setSounds, setMaxShortBreaks }}>

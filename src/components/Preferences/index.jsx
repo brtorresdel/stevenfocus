@@ -8,7 +8,7 @@ import { useState } from "react";
 
 export function Preferences() {
     const { preferenceView } = useModal();
-    const { setSounds, themeConfig } = useTheme();
+    const { setSounds, themeConfig, changeTimer, refreshThemeConfig } = useTheme();
     const [playSwitch] = useSound(switchClick);
 
     const [focusValue, setFocusValue] = useState(themeConfig.night.timer.value / 60);
@@ -16,7 +16,7 @@ export function Preferences() {
     const [longBreakValue, setLongBreakValue] = useState(themeConfig.sunset.timer.value / 60);
 
     const [focusChange, setFocusChange] = useState(false);
-    const [shortBreakChange, setBreakChange] = useState(false);
+    const [shortBreakChange, setShortBreakChange] = useState(false);
     const [longBreakChange, setLongBreakChange] = useState(false);
 
     const [focusValid, setFocusValid] = useState(true);
@@ -60,7 +60,41 @@ export function Preferences() {
         setLongBreakValid(true);
     }
 
+    const handleFocusTimerChange = () => {
+        if (focusChange || !focusValid) return null;
 
+        setFocusChange(true);
+        changeTimer({ night: focusValue * 60 });   
+        window.location.reload();     
+
+        setTimeout(() => {
+            setFocusChange(false);
+        }, 5000);
+    };
+
+    const handleShortBreakTimerChange = () => {
+        if (shortBreakChange || !shortBreakValid) return null;
+
+        setShortBreakChange(true);
+        changeTimer({ pink: shortBreakValue * 60 });
+        window.location.reload(); 
+
+        setTimeout(() => {
+            setShortBreakChange(false);
+        }, 5000);
+    };
+
+    const handleLongBreakTimerChange = () => {
+        if (longBreakChange || !longBreakValid) return null;
+
+        setLongBreakChange(true);
+        changeTimer({ sunset: longBreakValue * 60 });
+        window.location.reload(); 
+
+        setTimeout(() => {
+            setLongBreakChange(false);
+        }, 5000);
+    };
 
     return (
         <div>
@@ -84,7 +118,7 @@ export function Preferences() {
                             value={focusValue}
                             onChange={(e) => { focusInputValidation(e.target.value) }} />
                     </div>
-                    <button onClick={() => console.log(focusValue)}>
+                    <button onClick={handleFocusTimerChange}>
                         {focusChange ? <Check className="ml-2" /> : <Save className="ml-2" />}
                     </button>
                 </div>
@@ -94,7 +128,7 @@ export function Preferences() {
                         <h4 className="text-xl">Short break (em minutos, max: 60, min: 1):</h4>
                         <input className={`flex grow text-xl bg-base-white/25 rounded-lg p-2 focus:border focus:border-base-white/65 ${!shortBreakValid && "border-red-500 border"}`} type="text" name="focus-timer" value={shortBreakValue} onChange={(e) => { shortBreakInputValidation(e.target.value) }} />
                     </div>
-                    <button>
+                    <button onClick={handleShortBreakTimerChange}>
                         {shortBreakChange ? <Check className="ml-2" /> : <Save className="ml-2" />}
                     </button>
                 </div>
@@ -104,7 +138,7 @@ export function Preferences() {
                         <h4 className="text-xl">Long break (em minutos, max: 60, min: 1):</h4>
                         <input className={`flex grow text-xl bg-base-white/25 rounded-lg p-2 focus:border focus:border-base-white/65 ${!longBreakValid && "border-red-500 border"}`} type="text" name="focus-timer" value={longBreakValue} onChange={(e) => { longBreakInputValidation(e.target.value) }} />
                     </div>
-                    <button>
+                    <button onClick={handleLongBreakTimerChange}>
                         {longBreakChange ? <Check className="ml-2" /> : <Save className="ml-2" />}
                     </button>
                 </div>
